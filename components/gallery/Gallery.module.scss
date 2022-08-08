@@ -1,0 +1,37 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.wrapper {
+  background: url("/assets/gallery-bg.png") no-repeat;
+  background-position-y: 200px;
+  background-position-x: 100px;
+}
+
+.content {
+  @include row-grid;
+  row-gap: 70px;
+  box-sizing: border-box;
+}
+
+.heading {
+  @include abrilFarfaceDefault;
+  font-size: var(--text-xxlg-size);
+  color: var(--color-dark);
+}
+
+.galleryPhotos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-inline: fluid(24px, 110px);
+  padding-block-end: 140px
+}
+
+.galleryPhoto {
+  block-size: 340px;
+  inline-size: 340px;
+  border-radius: 40px;
+  background: black;
+  margin: 20px
+}

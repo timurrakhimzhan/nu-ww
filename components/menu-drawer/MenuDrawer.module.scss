@@ -1,0 +1,24 @@
+@import 'styles/mixins';
+@import 'styles/fluid';
+
+.itemsWrapper {
+  @include row-grid;
+  list-style-type: none;
+  row-gap: 24px;
+
+  li {
+    @include poppinsDefault;
+    font-weight: 500;
+    cursor: pointer;
+
+    a {
+      @include column-grid-vert-centered;
+      justify-content: start;
+      column-gap: 16px;
+    }
+
+    &[data-selected=true], a:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}

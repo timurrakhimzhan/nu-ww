@@ -1,0 +1,126 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.header {
+  @include column-grid-vert-centered;
+  justify-content: space-between;
+  padding-inline: fluid(20px, 64px);
+  padding-block: fluid(16px, 56px);
+  grid-template-columns: auto 1fr auto;
+  column-gap: 32px;
+  @include mobile-styles() {
+    grid-template-columns: auto auto;
+  }
+
+}
+
+.nuLogo {
+  position: relative;
+  @include mobile-styles() {
+    display: none;
+  }
+}
+
+.nuLogo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  inset-inline-start: fluid(-20px, -64px);
+  inset-block-start: fluid(-16px, -56px);
+  inline-size: 120%;
+  block-size: 120%;
+  background: #A4A4A4;
+  filter: blur(385.244px);
+}
+
+.menuIconWrapper {
+  display: none;
+  @include mobile-styles() {
+    display: flex;
+    padding: 16px;
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+}
+
+.itemsWrapper {
+  @include column-grid-vert-centered;
+  justify-content: center;
+
+  column-gap: fluid(24px, 90px);
+  list-style-type: none;
+
+  @include mobile-styles() {
+    display: none;
+  }
+
+  li {
+    @include poppinsDefault;
+    font-weight: 500;
+
+    a {
+      cursor: pointer;
+    }
+
+    &[data-selected=true], a:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.contactsWrapper {
+  @include column-grid-vert-centered;
+
+  column-gap: 32px;
+}
+
+.contactUsButton {
+  @include column-grid-vert-centered;
+  justify-content: center;
+
+  block-size: 50px;
+  inline-size: 180px;
+  padding-inline: 8px;
+
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(56, 56, 56, 0.8) 100%);
+  backdrop-filter: blur(8px);
+  border-radius: 46px;
+
+  @include poppinsDefault;
+
+  font-weight: 600;
+  font-size: var(--text-sm-size);
+
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.gmailLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 58px;
+  background: white;
+}
+
+.instagramWrapper {
+  cursor: pointer;
+  block-size: 30px;
+  inline-size: 30px;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+

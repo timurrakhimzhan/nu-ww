@@ -1,0 +1,14 @@
+@import "styles/fluid";
+
+.content {
+  padding-inline: fluid(16px, 120px);
+  max-inline-size: 100vw;
+}
+
+.disableInlineStartPadding {
+  padding-inline-start: 0;
+}
+
+.disableInlineEndPadding {
+  padding-inline-end: 0;
+}

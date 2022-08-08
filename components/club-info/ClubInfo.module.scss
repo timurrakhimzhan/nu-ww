@@ -1,0 +1,82 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.wrapper {
+  @include column-grid-vert-centered;
+  justify-content: space-between;
+  min-block-size: 100vh;
+  max-inline-size: 100vw;
+  inline-size: 100vw;
+  background: var(--color-white);
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 86px;
+
+  @include mobile-styles() {
+    @include row-grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding-block-start: 140px;
+    grid-template-rows: min-content auto;
+  }
+
+  background: url("/assets/club-info-bg.png") no-repeat left center;
+
+}
+
+.infoWrapper {
+  @include row-grid;
+  row-gap: 30px;
+  padding-inline-start: fluid(16px, 120px);
+
+  @include mobile-styles() {
+    padding-inline-end: fluid(16px, 120px);
+  }
+}
+
+.heading {
+  @include abrilFarfaceDefault;
+  font-size: var(--text-xxlg-size);
+  color: var(--color-dark);
+}
+
+.description {
+  @include poppinsDefault;
+  color: var(--color-dark);
+}
+
+.imageWrapper {
+  block-size: 100%;
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.imageWrapper::before {
+  z-index: 0;
+  content: '';
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background: linear-gradient(90deg, #F6D365 0%, #BE9951 100%);
+  opacity: 0.3;
+  filter: blur(385.244px);
+}
+
+.imageDiv {
+  z-index: 1;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: 70%;
+  max-block-size: 645px;
+  border-radius: 376px 0 0 376px;
+  background: url("/assets/nu-atrium.jpeg") no-repeat center;
+
+  @include mobile-styles() {
+    //border-radius: 376px 376px 0 0;
+    border-radius: 176px;
+    height: 100%;
+  }
+}

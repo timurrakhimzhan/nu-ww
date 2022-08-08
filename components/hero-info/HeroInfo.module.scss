@@ -1,0 +1,50 @@
+@import "styles/mixins";
+
+.wrapper {
+  @include row-grid;
+  row-gap: 24px;
+  grid-template-rows: auto auto auto;
+  block-size: min-content;
+  margin-block: auto;
+  max-inline-size: 500px;
+
+}
+
+.headingWrapper {
+  @include column-grid-vert-centered;
+  column-gap: 4px;
+}
+
+.heading {
+  @include abrilFarfaceDefault;
+  font-size: var(--text-xxxlg-size);
+
+  span.primary {
+    color: var(--color-primary);
+  }
+}
+
+.description {
+  @include poppinsDefault;
+  font-weight: 300;
+  font-size: var(--text-sm-size);
+}
+
+.cta {
+  @include column-grid-vert-centered;
+  column-gap: 16px;
+  padding-inline: 24px;
+  padding-block: 18px;
+  background: linear-gradient(195.06deg, #F6D365 46.31%, #FBB708 103.28%), linear-gradient(195.06deg, #F6D365 46.31%, #FBB708 103.28%);
+  box-shadow: 0px 10px 10px rgba(246, 211, 101, 0.15);
+  border-radius: 40px;
+
+  margin-inline-end: auto;
+
+  &:hover {
+    background: linear-gradient(195.06deg, rgba(246, 211, 101, 0.35) 72.31%, rgba(251, 183, 8, 0.7) 103.28%), linear-gradient(195.06deg, rgba(246, 211, 101, 0.35) 46.31%, rgba(251, 183, 8, 0.7) 103.28%);
+  }
+
+  @include poppinsDefault;
+  color: var(--color-dark);
+}

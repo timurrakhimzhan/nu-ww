@@ -1,0 +1,65 @@
+@import "styles/mixins";
+
+.wrapper {
+  display: grid;
+  @include row-grid;
+
+  row-gap: 4px;
+}
+
+.contentWrapper {
+  display: grid;
+  @include column-grid-vert-centered;
+
+  column-gap: 12px;
+}
+
+.arrowIcon {
+  background-color: var(--color-dark);
+  color: var(--color-primary);
+  border: 12px solid rgba(12, 17, 31, 0.3);
+  border-radius: 50%;
+
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.arrowDisabled {
+  opacity: 0.2;
+  cursor: none;
+  pointer-events: none;
+}
+
+.arrowLeft {
+  transform: rotate(180deg);
+}
+
+.progressWrapper {
+  display: grid;
+  @include column-grid-vert-centered;
+  inline-size: min-content;
+  block-size: min-content;
+
+  column-gap: 8px;
+  margin-inline: auto;
+}
+
+.progressDisplayer {
+  inline-size: 16px;
+  block-size: 16px;
+  //box-sizing: border-box;
+
+  border-radius: 8px;
+
+  //border: 6px solid rgba(12, 17, 31, 0.3);
+
+  background: var(--color-gray);
+}
+
+.active {
+  background: var(--color-primary);
+}

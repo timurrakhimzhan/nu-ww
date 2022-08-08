@@ -1,0 +1,57 @@
+@import '../../styles/mixins';
+@import '../../styles/fluid';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  inline-size: 100vw;
+  max-inline-size: 100vw;
+  background-image: linear-gradient(90deg, #0C111F 1.85%, #0C111F 43.26%, rgba(12, 17, 31, 0.58) 62.17%, rgba(12, 17, 31, 0) 100%);
+  position: relative;
+
+  &::before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    inline-size: 60%;
+    inset-block: 0;
+    inset-inline-end: 0;
+    background-image: url("/assets/nu-bg.jpg");
+    background-size: cover;
+    background-position-x: left;
+    background-position-y: bottom;
+  }
+
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 500px auto;
+  padding-block: 140px;
+  flex: 1;
+  max-inline-size: 100%;
+  inline-size: 100%;
+  box-sizing: border-box;
+
+  @include mobile-styles() {
+    grid-template-columns: none;
+    grid-template-rows: auto auto;
+  }
+
+  row-gap: 96px;
+}
+
+
+.carouselWrapper {
+  inline-size: 100%;
+  padding-top: 56.25%;
+  block-size: 0px;
+  position: relative;
+}
+
+.clubInfoWrapper {
+  @include mobile-styles() {
+    margin-inline: auto;
+  }
+}

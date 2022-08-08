@@ -1,0 +1,15 @@
+.eventSection {
+  position: relative;
+  max-inline-size: 100%;
+  width: 100%;
+  .eventInfoWrapper {
+    position: absolute;
+  }
+}
+
+.navSection {
+  max-inline-size: 100vw;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,30 @@
+@import 'styles/mixins';
+
+.content {
+  block-size: 500px;
+  max-block-size: 90vh;
+
+  border-radius: 70px;
+  inline-size: 450px;
+  max-inline-size: 90vw;
+
+  @include row-grid;
+  grid-template-rows: 4fr 1fr;
+  overflow: hidden;
+}
+
+.slideWrapper {
+  position: relative;
+  display: flex;
+  inline-size: 100%;
+
+  transition: transform 300ms ease-in-out;
+}
+
+.item {
+  position: absolute;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: 100%;
+  background: var(--color-white);
+}

@@ -1,0 +1,74 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.footer {
+  background: var(--color-dark);
+  position: relative;
+  inline-size: 100vw;
+  border-radius: 60px 60px 0 0;
+  overflow-x: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  background: url("/assets/footer-bg.png") no-repeat left bottom;
+  @include mobile-styles() {
+    display: none;
+  }
+}
+
+.content {
+  block-size: 275px;
+  @include column-grid-vert-centered;
+  justify-content: space-between;
+  padding-block: 32px;
+}
+
+.headingsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  @include abrilFarfaceDefault;
+  font-size: var(--text-xxlg-size);
+  background: linear-gradient(90deg, #F6D365 0%, #BE9951 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheading {
+  @include poppinsDefault;
+  font-size: var(--text-lg-size);
+  color: var(--color-white);
+}
+
+.socialMediaWrapper {
+  @include row-grid;
+  row-gap: 20px;
+}
+
+.socialMediaWrapper::before {
+  content: '';
+  position: absolute;
+  block-size: 100%;
+  inset-block-end: 0;
+  inset-inline-end: -400px;
+  inline-size: 800px;
+  overflow-x: hidden;
+
+  background: #A4A4A4;
+  opacity: 0.6;
+  filter: blur(385.244px);
+}
+
+.socialMediaIconWrapper {
+  position: relative;
+  block-size: fluid(32px, 56px);
+  inline-size: fluid(32px, 56px);
+
+
+}

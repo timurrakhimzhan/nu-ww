@@ -1,0 +1,43 @@
+$minVW: 375px;
+$maxVW: 1600px;
+
+@function remify($value, $remify: true) {
+  @if $remify {
+    @return #{strip-unit($value) / 16}rem;
+  }
+  @return $value;
+}
+
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function fluid(
+  $startValue,
+  $endValue,
+  $minViewportWidth: $minVW,
+  $maxViewportWidth: $maxVW,
+  $remify: false
+) {
+  $minValue: $startValue;
+  $maxValue: $endValue;
+
+  @if $endValue < $startValue {
+    $minValue: $endValue;
+    $maxValue: $startValue;
+  }
+
+  $additionalSize: #{strip-unit($minViewportWidth) / 100}px;
+  $startSize: remify($startValue, $remify);
+  $endSize: remify($endValue, $remify);
+  $calc: #{calc(
+      #{$startSize} + ((#{1vw} - #{$additionalSize}) * #{100 * ($endValue - $startValue) /
+            ($maxViewportWidth - $minVW)})
+    )};
+
+  @return clamp(#{remify($minValue, $remify)}, #{$calc}, #{remify($maxValue, $remify)});
+}

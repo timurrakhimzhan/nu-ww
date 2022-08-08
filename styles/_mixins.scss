@@ -1,0 +1,34 @@
+@mixin column-grid {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+@mixin column-grid-vert-centered {
+  @include column-grid;
+  align-items: center;
+}
+
+@mixin poppinsDefault {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--text-md-size);
+  color: var(--color-white);
+}
+
+@mixin abrilFarfaceDefault {
+  font-family: 'Abril Fatface', sans-serif;
+  font-size: var(--text-md-size);
+  color: var(--color-white);
+}
+
+
+@mixin row-grid {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+
+@mixin mobile-styles {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}

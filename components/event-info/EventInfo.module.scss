@@ -1,0 +1,33 @@
+@import '../../styles/mixins';
+
+.wrapper {
+  transition: opacity 200ms linear;
+  &[aria-hidden=true] {
+    opacity: 0;
+  }
+  opacity: 1;
+  word-wrap: break-word;
+  max-inline-size: 100%;
+}
+
+.heading {
+  @include poppinsDefault;
+  color: var(--color-primary);
+  font-size: var(--text-xxlg-size);
+  font-weight: 700;
+  margin: 0;
+}
+
+.subheading {
+  @include poppinsDefault;
+  font-size: var(--text-xlg-size);
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.description {
+  @include poppinsDefault;
+  letter-spacing: 0.17em;
+  font-size: var(--text-sm-size);
+}
