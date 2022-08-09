@@ -14,4 +14,6 @@ export const MENU = [
         path: '/leaderboard',
         iconPath: '/assets/icons/leaderboard.svg'
     },
-]
+];
+
+export const JWT_SECRET=process.env.JWT_SECRET || '';

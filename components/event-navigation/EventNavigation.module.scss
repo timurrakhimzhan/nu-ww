@@ -40,33 +40,31 @@
   }
 
 
-  &::before {
-    content: "";
+  .itemImage {
     position: absolute;
-    background-image: url('/assets/paintings.jpeg');
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
-    border-radius: 20px;
 
     inline-size: 100%;
     block-size: 100%;
     inset: 0;
     transition: filter 300ms ease-out;
     filter: grayscale(100%);
+
+    img {
+      border-radius: 20px;
+    }
   }
 
   transition: transform 200ms ease-out;
 
   &[aria-selected=true] {
     transform: scale(1.15);
-    &::before {
+    .itemImage {
       filter: grayscale(0);
     }
   }
 
   &:hover {
-    &::before {
+    .itemImage {
       filter: grayscale(0);
     }
   }

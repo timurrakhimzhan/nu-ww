@@ -1,7 +1,11 @@
+@import "styles/mixins";
+
+
 .eventSection {
   position: relative;
   max-inline-size: 100%;
-  width: 100%;
+  inline-size: 100%;
+  block-size: 250px;
   .eventInfoWrapper {
     position: absolute;
   }
@@ -12,4 +16,7 @@
   margin-top: auto;
   display: flex;
   justify-content: center;
+  @include mobile-styles() {
+    margin-block-start: 48px;
+  }
 }

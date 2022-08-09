@@ -44,4 +44,8 @@
   max-inline-size: 100%;
   inline-size: 100%;
   box-sizing: border-box;
+
+  @include mobile-styles() {
+    padding-block-start: 64px;
+  }
 }

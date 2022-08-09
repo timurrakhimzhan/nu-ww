@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id                     Int                  @id @default(autoincrement())
+  name                   String
+  createdAt              DateTime             @default(now()) @db.Timestamp(6)
+  updatedAt              DateTime             @default(now()) @db.Timestamp(6)
+  isActive               Boolean              @default(false)
+  pointsPerParticipation Int
+  EventParticipation     EventParticipation[]
+}
+
+model EventParticipation {
+  id        Int                      @id @default(autoincrement())
+  eventId   Int
+  userId    String                   @unique
+  hash      String
+  status    EventParticipationStatus
+  createdAt DateTime                 @default(now()) @db.Timestamp(6)
+  updatedAt DateTime                 @default(now()) @db.Timestamp(6)
+  Event     Event                    @relation(fields: [eventId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__event")
+  User      User                     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__user")
+}
+
+model Role {
+  codename  String   @id
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  updatedAt DateTime @default(now()) @db.Timestamp(6)
+  User      User[]
+}
+
+model SchemaVersion {
+  version BigInt    @id
+  name    String?
+  md5     String?
+  run_at  DateTime? @db.Timestamptz(6)
+}
+
+model User {
+  id                 String              @id
+  email              String?
+  firstName          String
+  lastName           String
+  roleCodename       String
+  lastLoginTime      DateTime?           @db.Timestamp(6)
+  createdAt          DateTime            @default(now()) @db.Timestamp(6)
+  updatedAt          DateTime            @default(now()) @db.Timestamp(6)
+  Role               Role                @relation(fields: [roleCodename], references: [codename], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_role")
+  EventParticipation EventParticipation?
+}
+
+enum EventParticipationStatus {
+  PENDING
+  CANCELLED
+  SCANNED
+  SCAN_ACCEPTED
+}

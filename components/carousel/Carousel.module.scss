@@ -1,15 +1,14 @@
 @import 'styles/mixins';
 
 .content {
-  block-size: 500px;
-  max-block-size: 90vh;
+  block-size: 450px;
+  max-block-size: 80vw;
 
   border-radius: 70px;
-  inline-size: 450px;
-  max-inline-size: 90vw;
+  inline-size: 100%;
 
   @include row-grid;
-  grid-template-rows: 4fr 1fr;
+  grid-template-rows: auto;
   overflow: hidden;
 }
 
@@ -26,5 +25,14 @@
   inline-size: 100%;
   max-inline-size: 100%;
   block-size: 100%;
-  background: var(--color-white);
+}
+
+.itemLabel {
+  position: absolute;
+  @include poppinsDefault;
+  font-weight: 600;
+  inset-block-end: 16px;
+  text-align: center;
+  inset-inline: 0;
+  color: var(--color-white);
 }

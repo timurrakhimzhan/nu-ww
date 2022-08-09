@@ -16,7 +16,9 @@ const CarouselWithNavigation: React.FC<CarouselWithNavigationProps>  = ({items, 
                     className={clsx(styles.arrowIcon, styles.arrowLeft, idActive === 0 && styles.arrowDisabled)}>
                 <ArrowRightSvg />
             </button>
-            <Carousel items={items} idActive={idActive} onIdChange={onIdChange} />
+            <div>
+                <Carousel items={items} idActive={idActive} onIdChange={onIdChange} />
+            </div>
             <button onClick={() => onIdChange(idActive + 1)}
                     className={clsx(styles.arrowIcon, idActive + 1 === items.length && styles.arrowDisabled)}>
                 <ArrowRightSvg />

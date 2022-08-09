@@ -3,14 +3,17 @@
 .wrapper {
   display: grid;
   @include row-grid;
-
+  max-inline-size: 90vw;
+  inline-size: 100%;
   row-gap: 4px;
 }
 
 .contentWrapper {
   display: grid;
   @include column-grid-vert-centered;
-
+  max-inline-size: 100%;
+  inline-size: 100%;
+  grid-template-columns: auto 1fr auto;
   column-gap: 12px;
 }
 
