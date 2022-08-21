@@ -10,7 +10,7 @@ import {EventParticipationStatus} from "@prisma/client";
 const QrDisplay = () => {
     const {hashInfo} = useSnapshot(moderatorPanelStore);
     const [fetching, setFetching] = useState(true);
-    const {data} = trpc.useQuery(['moderator.get-token-moderator-info', { hash: hashInfo?.hash || ''}], {retryDelay: 5, enabled: fetching});
+    const {data} = trpc.useQuery(['moderator.get-token-moderator-info', { hash: hashInfo?.hash || ''}], {refetchInterval: 5000, enabled: fetching});
     const {mutateAsync: mutateCancel} = trpc.useMutation('moderator.cancel-token');
     const {mutateAsync: mutateAccept} = trpc.useMutation('moderator.accept-token');
     useEffect(() => {
