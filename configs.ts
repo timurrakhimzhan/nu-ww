@@ -27,8 +27,6 @@ export const GOOGLE_AUTH_CREDENTIALS = {
     clientSecret: process.env.GOOGLE_SECRET as string,
 }
 
-console.log(GOOGLE_AUTH_CREDENTIALS, 'hello world');
-
 export const ROLES = {
     PARTICIPANT: 'PARTICIPANT',
     MODERATOR: 'MODERATOR',
