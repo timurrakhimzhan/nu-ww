@@ -25,8 +25,15 @@ const       Hero = () => {
                     <HeroInfo />
                 </div>
                 <div className={styles.carouselWrapper}>
+                    <div className={styles.iframeWrapper}>
+                        <div>
+                            <iframe src="https://www.youtube.com/embed/p26AC5ZP-Xs?autoplay=1"
+                                    title="YouTube video player" frameBorder="0"
+                                    allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen></iframe>
+                        </div>
+                    </div>
 
-                    {/*<CarouselWithNavigation showProgress={true} items={carousel} idActive={idActive} onIdChange={(id) => setIdActive(id) } />*/}
                 </div>
             </div>
         </ContentLayout>

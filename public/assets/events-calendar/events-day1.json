@@ -1,0 +1,37 @@
+[
+  {
+    "time": "17:00-17:30",
+    "event": "iGEM: Kahoot and Information Booklets",
+    "venue": "Lower Atrium"
+  },
+  {
+    "time": "17:30",
+    "event": "iGEM: Movie Night and Q&A",
+    "venue": "Lower Atrium"
+  },
+  {
+    "time": "17:00 - 18:00",
+    "event": "KFSA: Kahoot and Q&A with Alumni",
+    "venue": "Blue Hall"
+  },
+  {
+    "time": "18:00 - 19:00",
+    "event": "SIAM: Math Walks",
+    "venue": "Daily Cup"
+  },
+  {
+    "time": "19:00 - 20:00",
+    "event": "Japanese Club: Cooking session and Board games",
+    "venue": "27.146"
+  },
+  {
+    "time": "19:00 - 20:00",
+    "event": "ACM SC: Annual Opening Ceremony",
+    "venue": "Blue Hall"
+  },
+  {
+    "time": "19:00 - 22:00",
+    "event": "SEDS KZ: Rocket Launch and Stars Night with a Telescope",
+    "venue": "Outside"
+  }
+]

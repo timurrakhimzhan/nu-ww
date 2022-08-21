@@ -1,0 +1,65 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  inline-size: 100%;
+  justify-content: center;
+  align-items: center;
+  row-gap: 24px;
+  background: linear-gradient(111.03deg, rgba(246, 211, 101, 0.5) 2.82%, rgba(239, 238, 238, 0.06) 90.94%);
+  backdrop-filter: blur(33.5429px);
+  padding-block: 30px;
+  padding-inline: fluid(8px, 12px);
+  border-radius: 14px;
+
+  min-inline-size: 700px;
+  overflow-x: auto;
+}
+
+.wrapper::before {
+  position: absolute;
+  content: '';
+  inset-block-start: 0;
+  inset-inline: 0;
+  inline-size: 100%;
+  block-size: 85px;
+  background: linear-gradient(111.03deg, #F6D365 2.82%, rgba(239, 238, 238, 0.06) 90.94%);
+  backdrop-filter: blur(3.35429px);
+  border-radius: 14px;
+  z-index: 0;
+}
+
+.headerCell {
+  @include poppinsDefault;
+  font-weight: 600;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 40px;
+  z-index: 1;
+
+}
+
+.time {
+  @include poppinsDefault;
+  font-size: var(--text-sm-size);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 40px;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  @include poppinsDefault;
+  font-size: var(--text-sm-size);
+  color: var(--color-white);
+  text-align: center;
+  align-items: center;
+  block-size: 40px;
+}

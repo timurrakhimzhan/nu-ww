@@ -1,0 +1,17 @@
+@import "styles/mixins";
+
+.wrapper {
+  inline-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  @include poppinsDefault;
+  div:last-child {
+    display: none;
+  }
+  div {
+    margin-inline: 12px;
+  }
+}

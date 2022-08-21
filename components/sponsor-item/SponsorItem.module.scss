@@ -1,0 +1,23 @@
+@import 'styles/mixins';
+
+.wrapper {
+  @include column-grid;
+  column-gap: 12px;
+  align-items: center;
+  max-inline-size: 600px;
+
+  img {
+    inline-size: 120px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.description {
+  @include poppinsDefault;
+  font-size: var(--text-sm-size);
+  color: var(--color-white);
+}
+

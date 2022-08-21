@@ -30,4 +30,9 @@
   @include poppinsDefault;
   letter-spacing: 0.17em;
   font-size: var(--text-sm-size);
+  margin-bottom: 24px;
+}
+
+.tableWrapper {
+  margin-bottom: 24px;
 }

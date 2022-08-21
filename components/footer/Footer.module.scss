@@ -10,6 +10,7 @@
 }
 
 .footer::before {
+  z-index: 0;
   content: '';
   position: absolute;
   inset: 0;
@@ -21,10 +22,20 @@
 }
 
 .content {
-  block-size: 275px;
-  @include column-grid-vert-centered;
-  justify-content: space-between;
-  padding-block: 32px;
+  position: relative;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 647px;
+  height: 639px;
+  background: #A4A4A4;
+  opacity: 0.4;
+  filter: blur(385.244px);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .headingsWrapper {
@@ -34,7 +45,7 @@
 
 .heading {
   @include abrilFarfaceDefault;
-  font-size: var(--text-xxlg-size);
+  font-size: var(--text-xxxlg-size);
   background: linear-gradient(90deg, #F6D365 0%, #BE9951 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -44,31 +55,21 @@
   @include poppinsDefault;
   font-size: var(--text-lg-size);
   color: var(--color-white);
+  text-transform: uppercase;
 }
 
-.socialMediaWrapper {
-  @include row-grid;
-  row-gap: 20px;
+.sponsorsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  inline-size: 100%;
 }
 
-.socialMediaWrapper::before {
-  content: '';
-  position: absolute;
-  block-size: 100%;
-  inset-block-end: 0;
-  inset-inline-end: -400px;
-  inline-size: 800px;
-  overflow-x: hidden;
-
-  background: #A4A4A4;
-  opacity: 0.6;
-  filter: blur(385.244px);
-}
-
-.socialMediaIconWrapper {
-  position: relative;
-  block-size: fluid(32px, 56px);
-  inline-size: fluid(32px, 56px);
-
-
+.sponsorWrapper {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: fluid(300px, 600px);
+  margin: 24px;
 }

@@ -5,8 +5,11 @@ import EventNavigation from "../../components/event-navigation";
 
 import styles from './../../styles/modules/EventCalendar.module.scss';
 import {useMemo, useState} from "react";
-import CarouselWithNavigation from "../../components/carousel-with-navigation";
 import {useMediaQuery} from "@chakra-ui/react";
+import eventsScheduleDay1 from './../../public/assets/events-calendar/events-day1.json';
+import clubsDay1 from './../../public/assets/events-calendar/clubs-day1.json';
+import EventsTable from "../../components/events-table";
+
 
 const events = [
     {
@@ -14,15 +17,17 @@ const events = [
         name: 'Academic and Professional Day',
         date: 'Mon, Aug 22',
         dateFull: 'Day 1 - Monday, August 22',
-        description: `Bir bale anau mnau production Можно информацию про клубы`,
-        imgUrl: '/assets/day1.jpg'
+        description: ``,
+        imgUrl: '/assets/day1.jpg',
+        eventsSchedule: eventsScheduleDay1,
+        clubsList: clubsDay1
     },
     {
         id: 1,
         name: 'Social Day',
         date: 'Tue, Aug 23',
         dateFull: 'Day 2 - Tuesday, August 23',
-        description: `Bir bale anau mnau production Можно информацию про клубы`,
+        description: ``,
         imgUrl: '/assets/day2.jpg'
     },
     {
@@ -30,7 +35,7 @@ const events = [
         name: 'Art and Entertainment Day',
         date: 'Wed, Aug 24',
         dateFull: 'Day 3 - Wednesday, August 24',
-        description: `Bir bale anau mnau production Можно информацию про клубы`,
+        description: ``,
         imgUrl: '/assets/day3.jpg'
     },
     {
@@ -38,7 +43,7 @@ const events = [
         name: 'Sports and Dance Day',
         date: 'Wed, Aug 25',
         dateFull: 'Day 4 - Thursday, August 25',
-        description: `Bir bale anau mnau production Можно информацию про клубы`,
+        description: ``,
         imgUrl: '/assets/day4.jpg'
     },
     {
@@ -46,7 +51,7 @@ const events = [
         name: 'Student Government. Concert/Party',
         date: 'Thu, Aug 26',
         dateFull: 'Day 5 - Friday, August 26',
-        description: `Bir bale anau mnau production Можно информацию про клубы`,
+        description: ``,
         imgUrl: '/assets/day5.jpg'
     }
 ]
@@ -62,7 +67,10 @@ const EventsCalendar: NextPage = () => {
                         events.map((event) => (
                             <div key={event.id} className={styles.eventInfoWrapper}>
                                 <EventInfo heading={event.name} subheading={event.dateFull}
-                                           description={event.description} isHidden={event.id !== eventId}/>
+                                           eventsSchedule={event.eventsSchedule}
+                                           description={event.description}
+                                           clubList={event.clubsList}
+                                           isHidden={event.id !== eventId}/>
                             </div>
                         ))
                     }
