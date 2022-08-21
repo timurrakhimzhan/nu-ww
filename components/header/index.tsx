@@ -93,16 +93,18 @@ const Header: React.FC<HeaderProps> = ({ onMenuIconClick, ... props }) => {
                         <MenuList>
                             <MenuOptionGroup title={`${data.user.firstName} ${data.user.lastName} ${pointsString}`}>
                                 {(data.user.role === ROLES.PARTICIPANT || data.user.role === ROLES.PARTICIPANT_MODERATOR) && (
-                                    <MenuItemOption onClick={() => router.push('/get-tokens')}>
-                                        Get tokens
-                                    </MenuItemOption>
+                                    <MenuItem onClick={() => router.push('/get-tokens')}>
+                                        <div className={styles.menuItemWrapper}>Get tokens</div>
+                                    </MenuItem>
                                 )}
                                 {(data.user.role === ROLES.MODERATOR || data.user.role === ROLES.PARTICIPANT_MODERATOR) && (
-                                    <MenuItemOption onClick={() => router.push('/moderator-panel')}>
-                                        Moderate
-                                    </MenuItemOption>
+                                    <MenuItem onClick={() => router.push('/moderator-panel')}>
+                                        <div className={styles.menuItemWrapper}>Moderate</div>
+                                    </MenuItem>
                                 )}
-                                <MenuItemOption onClick={() => signOut()}>Log out</MenuItemOption>
+                                <MenuItem onClick={() => signOut()} className={styles.menuItemWrapper}>
+                                    <div className={styles.menuItemWrapper}>Log out</div>
+                                </MenuItem>
                             </MenuOptionGroup>
 
                         </MenuList>
