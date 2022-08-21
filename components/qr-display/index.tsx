@@ -28,7 +28,7 @@ const QrDisplay = () => {
 
     return <div className={styles.wrapper}>
         <div className={styles.qrWrapper}>
-            <QRCode size={isSuperThin ? 196 : 256} value={`https://hello.world/qr-scanner?hash=${hashInfo.hash}`}/>
+            <QRCode size={isSuperThin ? 196 : 256} value={`https://nuclubsfair.rocks/get-tokens?hash=${hashInfo.hash}`}/>
         </div>
         <div className={styles.info}>
             <div>Status: <b>{data.status}</b></div>

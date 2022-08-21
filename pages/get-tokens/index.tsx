@@ -37,13 +37,16 @@ export type QrScannerMode = 'QR_SCANNING' | 'QR_PROCESSED';
 const GetTokens = () => {
     const {scannedHash, message, mode} = useSnapshot(getTokensStore);
     const {data: tokenData} = trpc.useQuery(['participant.get-token-participant-info', {hash: scannedHash || ''}], {enabled: !!scannedHash, refetchInterval: 5000});
-
+    const utils = trpc.useContext();
     useEffect(() => {
         if(!tokenData) {
             return;
         }
         if(tokenData.status === 'SCAN_ACCEPTED') {
             getTokensStore.setSuccessMessage(`Congratulations. You received: ${tokenData.pointsAssigned} tokens`);
+
+            utils.invalidateQueries(['leaderboard'])
+            utils.invalidateQueries(['participant.leaderboard-info'])
         }
         if(tokenData.status === 'CANCELLED') {
             getTokensStore.setErrorMessage(`Your QR-code got cancelled. Try again.`);
