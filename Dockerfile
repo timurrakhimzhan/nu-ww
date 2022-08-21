@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install --legacy-peer-deps
 
-COPY prisma ./
+COPY prisma ./prisma
 RUN npx prisma generate
 
 COPY . .
