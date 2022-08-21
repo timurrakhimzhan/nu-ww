@@ -5,8 +5,7 @@
   border-radius: 40px;
   padding-inline: fluid(16px, 48px);
   padding-block: 20px;
-  inline-size: max-content;
   margin-inline: auto;
-  min-inline-size: 50vw;
-  max-inline-size: 600px;
+  inline-size: fluid(400px, 600px);
+  max-inline-size: 90vw;
 }
