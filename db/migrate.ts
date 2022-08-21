@@ -2,6 +2,7 @@ import Postgrator from 'postgrator';
 import pg from 'pg';
 import path from 'path';
 import 'dotenv/config';
+import * as fs from "fs";
 
 const DATABASE_CONFIG = {
     HOST: process.env['DB_HOST'],
@@ -24,6 +25,9 @@ const client = new pg.Client({
     user: DATABASE_CONFIG.USER,
     database: DATABASE_CONFIG.NAME,
     password: DATABASE_CONFIG.PASSWORD,
+    ssl: {
+        ca: fs.readFileSync(path.resolve(process.cwd(), 'ca-certificate.pem'))
+    }
 });
 
 

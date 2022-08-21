@@ -19,7 +19,7 @@ const EventNavigation: React.FC<EventNavigationProps> = ({items, chosenId, onIte
             <div key={item.id} className={styles.item}
                  aria-selected={chosenId === item.id} onClick={() => onItemClick(item.id)}>
                 <div className={styles.itemImage}>
-                    <Image src={item.imgUrl} objectFit={'cover'} layout={'fill'} />
+                    <Image src={item.imgUrl} objectFit={'cover'} alt={item.name} layout={'fill'} />
                 </div>
                 <p className={styles.name}>{item.name}</p>
                 <p className={styles.date}>{item.date}</p>
