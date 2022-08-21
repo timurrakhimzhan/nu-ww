@@ -36,3 +36,5 @@ export const ROLES = {
 }
 
 export const NODE_ENV = process.env.NODE_ENV || 'development'
+
+export const URL = process.env.URL || 'http://localhost:3000'

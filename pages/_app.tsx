@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
 export default withTRPC<AppRouter>({
     config({ctx}) {
         return {
-            url: NODE_ENV === 'development' ? 'http://localhost:3000/api/trpc' : `${window.origin}/api/trpc`
+            url: `${URL}/api/trpc`
         };
     },
     ssr: true,
