@@ -1,0 +1,55 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  inline-size: 90%;
+  border-radius: 14px;
+  max-block-size: 100%;
+  margin-inline: auto;
+  background: linear-gradient(111.03deg, rgba(246, 211, 101, 0.5) 2.82%, rgba(239, 238, 238, 0.06) 90.94%);
+  backdrop-filter: blur(33.5429px);
+  min-block-size: min-content;
+}
+
+.notFirstPlacesWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, min-content);
+  justify-content: space-between;
+  padding-inline: fluid(32px, 72px);
+  overflow-y: auto;
+  min-block-size: 0;
+
+  @include mobile-styles() {
+    grid-template-columns: repeat(3, min-content);
+  }
+
+}
+
+.spinnerWrapper {
+
+}
+
+.actionWrapper {
+  @include poppinsDefault;
+  font-size: var(--text-sm-size);
+  color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  padding-block: 12px;
+  grid-column: 1 / 5;
+
+  @include mobile-styles() {
+    grid-column: 1 / 4;
+  }
+
+  span {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+

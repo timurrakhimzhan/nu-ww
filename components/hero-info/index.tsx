@@ -1,6 +1,7 @@
 import styles from './HeroInfo.module.scss';
 import {Image} from "@chakra-ui/image";
 import ArrowRightSvg from "../arrow-right-svg/ArrowRightSvg";
+import Cta from "../cta";
 
 const HeroInfo = () => {
     return <div className={styles.wrapper}>
@@ -16,10 +17,7 @@ const HeroInfo = () => {
             Student Clubs in different fields: Academic and Professional,
             Social, Art and Entertainment, Sport and Dance, Student Government.
         </p>
-        <button className={styles.cta}>
-            <span>Go to events</span>
-            <ArrowRightSvg fill={'url(#paint0_linear_573_150)'} />
-        </button>
+        <Cta label={'Go to events'} iconVisible={true} />
     </div>
 }
 

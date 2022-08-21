@@ -1,8 +1,11 @@
+import {Session} from "next-auth";
+
 export const MENU = [
     {
         label: 'About',
         path: '/',
-        iconPath: '/assets/icons/about.svg'
+        iconPath: '/assets/icons/about.svg',
+        isVisible: (session: Session) => session
     },
     {
         label: 'Events calendar',
@@ -17,3 +20,16 @@ export const MENU = [
 ];
 
 export const JWT_SECRET=process.env.JWT_SECRET || '';
+
+
+export const GOOGLE_AUTH_CREDENTIALS = {
+    clientId: process.env.GOOGLE_ID as string,
+    clientSecret: process.env.GOOGLE_SECRET as string,
+}
+
+
+export const ROLES = {
+    PARTICIPANT: 'PARTICIPANT',
+    MODERATOR: 'MODERATOR',
+    PARTICIPANT_MODERATOR: 'PARTICIPANT_MODERATOR'
+}

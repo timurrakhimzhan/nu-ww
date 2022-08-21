@@ -1,0 +1,14 @@
+@import "styles/mixins";
+
+.wrapper {
+  @include row-grid;
+  row-gap: 24px;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.heading {
+  @include poppinsDefault;
+  font-size: var(--text-lg-size);
+  margin-block-end: 14px;
+}

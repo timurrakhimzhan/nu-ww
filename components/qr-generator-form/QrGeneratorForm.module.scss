@@ -1,0 +1,6 @@
+@import "styles/mixins";
+
+.wrapper {
+  @include row-grid;
+  row-gap: 16px;
+}

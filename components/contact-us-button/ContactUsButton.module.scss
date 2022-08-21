@@ -1,0 +1,25 @@
+@import "styles/mixins";
+
+.contactUsButton {
+  @include column-grid-vert-centered;
+  justify-content: center;
+
+  block-size: 50px;
+  inline-size: 180px;
+  padding-inline: 8px;
+
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.8) 0%, rgba(56, 56, 56, 0.8) 100%);
+  backdrop-filter: blur(8px);
+  border-radius: 46px;
+
+  @include poppinsDefault;
+
+  font-weight: 600;
+  font-size: var(--text-sm-size);
+
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

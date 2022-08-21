@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
 }
 
 datasource db {
@@ -8,25 +9,32 @@ datasource db {
 }
 
 model Event {
-  id                     Int                  @id @default(autoincrement())
-  name                   String
-  createdAt              DateTime             @default(now()) @db.Timestamp(6)
-  updatedAt              DateTime             @default(now()) @db.Timestamp(6)
-  isActive               Boolean              @default(false)
-  pointsPerParticipation Int
-  EventParticipation     EventParticipation[]
+  id                 Int                  @id @default(autoincrement())
+  name               String
+  createdAt          DateTime             @default(now()) @db.Timestamp(6)
+  updatedAt          DateTime             @default(now()) @db.Timestamp(6)
+  isActive           Boolean              @default(false)
+  isOver             Boolean              @default(false)
+  minPoints          Int                  @default(1)
+  maxPoints          Int                  @default(1)
+  type               EventType            @default(ONCE_SCAN)
+  EventModerator     EventModerator?
+  EventParticipation EventParticipation[]
 }
 
 model EventParticipation {
-  id        Int                      @id @default(autoincrement())
-  eventId   Int
-  userId    String                   @unique
-  hash      String
-  status    EventParticipationStatus
-  createdAt DateTime                 @default(now()) @db.Timestamp(6)
-  updatedAt DateTime                 @default(now()) @db.Timestamp(6)
-  Event     Event                    @relation(fields: [eventId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__event")
-  User      User                     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__user")
+  id             Int                      @id @default(autoincrement())
+  eventId        Int
+  participantId  String?
+  moderatorId    String
+  pointsAssigned Int
+  hash           String                   @unique
+  status         EventParticipationStatus
+  createdAt      DateTime                 @default(now()) @db.Timestamp(6)
+  updatedAt      DateTime                 @default(now()) @db.Timestamp(6)
+  Event          Event                    @relation(fields: [eventId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__event")
+  Moderator      User                     @relation("EventParticipation_moderatorIdToUser", fields: [moderatorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__moderator")
+  Participant    User?                    @relation("EventParticipation_participantIdToUser", fields: [participantId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_event_participation__participant")
 }
 
 model Role {
@@ -44,16 +52,28 @@ model SchemaVersion {
 }
 
 model User {
-  id                 String              @id
-  email              String?
-  firstName          String
-  lastName           String
-  roleCodename       String
-  lastLoginTime      DateTime?           @db.Timestamp(6)
-  createdAt          DateTime            @default(now()) @db.Timestamp(6)
-  updatedAt          DateTime            @default(now()) @db.Timestamp(6)
-  Role               Role                @relation(fields: [roleCodename], references: [codename], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_role")
-  EventParticipation EventParticipation?
+  id                                                        String               @id
+  email                                                     String?
+  firstName                                                 String
+  lastName                                                  String
+  roleCodename                                              String
+  lastLoginTime                                             DateTime?            @db.Timestamp(6)
+  lastScannedQrTime                                         DateTime?            @db.Timestamp(6)
+  eventsScanned                                             Int                  @default(0)
+  createdAt                                                 DateTime             @default(now()) @db.Timestamp(6)
+  updatedAt                                                 DateTime             @default(now()) @db.Timestamp(6)
+  Role                                                      Role                 @relation(fields: [roleCodename], references: [codename], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_role")
+  EventModerator                                            EventModerator[]
+  EventParticipation_EventParticipation_moderatorIdToUser   EventParticipation[] @relation("EventParticipation_moderatorIdToUser")
+  EventParticipation_EventParticipation_participantIdToUser EventParticipation[] @relation("EventParticipation_participantIdToUser")
+}
+
+model EventModerator {
+  id          Int    @id @default(autoincrement())
+  moderatorId String
+  eventId     Int    @unique
+  Event       Event  @relation(fields: [eventId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventadmin_event")
+  Moderator   User   @relation(fields: [moderatorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventadmin_user")
 }
 
 enum EventParticipationStatus {
@@ -61,4 +81,9 @@ enum EventParticipationStatus {
   CANCELLED
   SCANNED
   SCAN_ACCEPTED
+}
+
+enum EventType {
+  ONCE_SCAN
+  MULTIPLE_SCAN
 }

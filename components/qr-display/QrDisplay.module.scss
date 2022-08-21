@@ -1,0 +1,24 @@
+@import "styles/mixins";
+
+.wrapper {
+  @include row-grid;
+  align-items: center;
+  justify-content: center;
+  row-gap: 24px;
+}
+
+.qrWrapper {
+  margin-inline: auto;
+}
+
+.info {
+  @include poppinsDefault;
+  @include row-grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.buttonsWrapper {
+  @include column-grid;
+  column-gap: 12px;
+}

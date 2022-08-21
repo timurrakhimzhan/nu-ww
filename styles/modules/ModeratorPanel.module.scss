@@ -1,0 +1,12 @@
+@import "styles/fluid";
+
+.wrapper {
+  background: linear-gradient(111.03deg, rgba(246, 211, 101, 0.5) 2.82%, rgba(239, 238, 238, 0.06) 90.94%);
+  border-radius: 40px;
+  padding-inline: fluid(16px, 48px);
+  padding-block: 20px;
+  inline-size: max-content;
+  margin-inline: auto;
+  min-inline-size: 50vw;
+  max-inline-size: 600px;
+}

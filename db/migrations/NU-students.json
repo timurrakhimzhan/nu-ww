@@ -47983,5 +47983,12 @@
    "lastName": "Zypayev",
    "firstName": "Ramazan",
    "email": "ramazan.zypayev@nu.edu.kz"
- }
+ },
+  {
+    "#": 6856,
+    "universityId": 123123123,
+    "lastName": "Rakhimzhan",
+    "firstName": "Timur",
+    "email": "timur.rakhimzhan@alumni.nu.edu.kz"
+  }
 ]

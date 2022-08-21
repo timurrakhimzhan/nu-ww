@@ -17,6 +17,7 @@ const migrationPattern = path.resolve(
     'migrations/*',
 );
 
+
 const client = new pg.Client({
     host: DATABASE_CONFIG.HOST,
     port: DATABASE_CONFIG.PORT,
@@ -24,6 +25,7 @@ const client = new pg.Client({
     database: DATABASE_CONFIG.NAME,
     password: DATABASE_CONFIG.PASSWORD,
 });
+
 
 const postgrator = new Postgrator({
     migrationPattern,

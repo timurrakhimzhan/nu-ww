@@ -24,7 +24,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding-inline: fluid(24px, 110px);
   padding-block-end: 140px
 }
 
@@ -33,5 +32,11 @@
   inline-size: 340px;
   border-radius: 40px;
   background: black;
-  margin: 20px
+  margin: 20px;
+
+  @media (max-width: 420px) {
+    inline-size: 90vw;
+    block-size: 90vw;
+    margin-inline: 0;
+  }
 }

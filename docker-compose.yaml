@@ -1,6 +1,18 @@
 version: '3.8'
 
 services:
+  app:
+    container_name: nu-ww-app
+    build:
+      context: .
+    networks:
+      - nu-ww-network
+    ports:
+      - "3003:3000"
+    env_file:
+      - .env-docker
+    depends_on:
+      - db
   db:
     container_name: nu-ww-db
     image: postgres:13-alpine
@@ -12,7 +24,7 @@ services:
     ports:
       - "5433:5432"
     env_file:
-      - .env
+      - .env-docker
     environment:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}

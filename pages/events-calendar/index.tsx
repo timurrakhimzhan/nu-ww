@@ -56,31 +56,22 @@ const EventsCalendar: NextPage = () => {
     const [isMobile] = useMediaQuery('(max-width: 1280px)');
     return (
         <DefaultLayout>
-            <section className={styles.eventSection}>
-                {
-                    events.map((event) => (
-                        <div key={event.id} className={styles.eventInfoWrapper}>
-                            <EventInfo heading={event.name} subheading={event.dateFull} description={event.description} isHidden={event.id !== eventId} />
-                        </div>
-                    ))
-                }
-            </section>
-            <section className={styles.navSection}>
-                {
-                    isMobile ? <CarouselWithNavigation
-                        items={events.map(({id,imgUrl, date }) => ({
-                            id,
-                            imgUrl,
-                            label: date
-                        }))}
-                        idActive={eventId}
-                        onIdChange={(id) => setEventId(id)} /> : (
-                            <EventNavigation items={events} chosenId={eventId} onItemClick={(id) => setEventId(id)} />
-                    )
-                }
+            <div className={styles.wrapper}>
+                <section className={styles.eventSection}>
+                    {
+                        events.map((event) => (
+                            <div key={event.id} className={styles.eventInfoWrapper}>
+                                <EventInfo heading={event.name} subheading={event.dateFull}
+                                           description={event.description} isHidden={event.id !== eventId}/>
+                            </div>
+                        ))
+                    }
+                </section>
+                <section className={styles.navSection}>
+                    <EventNavigation items={events} chosenId={eventId} onItemClick={(id) => setEventId(id)}/>
+                </section>
+            </div>
 
-
-            </section>
         </DefaultLayout>
     )
 }

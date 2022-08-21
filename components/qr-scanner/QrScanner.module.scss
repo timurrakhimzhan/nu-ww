@@ -1,0 +1,12 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.wrapper {
+  display: grid;
+  inline-size: 100%;
+
+}
+
+.info {
+  @include poppinsDefault;
+}

@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS "User"(
     "lastName" text NOT NULL,
     "roleCodename" TEXT NOT NULL,
     "lastLoginTime" TIMESTAMP DEFAULT NULL,
+    "lastScannedQrTime" TIMESTAMP DEFAULT NULL,
+    "eventsScanned" INT DEFAULT 0 NOT NULL,
     "createdAt" TIMESTAMP DEFAULT NOW() NOT NULL,
     "updatedAt" TIMESTAMP DEFAULT NOW() NOT NULL,
 

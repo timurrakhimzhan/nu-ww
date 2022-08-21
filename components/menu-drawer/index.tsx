@@ -4,7 +4,7 @@ import {
     Drawer,
     DrawerBody,
     DrawerCloseButton,
-    DrawerContent,
+    DrawerContent, DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     Input
@@ -15,6 +15,7 @@ import {MENU} from "../../configs";
 
 import styles from './MenuDrawer.module.scss';
 import {useRouter} from "next/router";
+import ContactUsButton from "../contact-us-button";
 
 type MenuDrawerProps = {
     isOpen: boolean;
@@ -46,6 +47,11 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({isOpen, onCLose}) => {
 
                 </menu>
             </DrawerBody>
+            <DrawerFooter>
+                <div className={styles.contactUsButtonWrapper}>
+                    <ContactUsButton/>
+                </div>
+            </DrawerFooter>
         </DrawerContent>
     </Drawer>
 }

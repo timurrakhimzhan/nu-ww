@@ -1,5 +1,11 @@
 @import "styles/mixins";
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
 
 .eventSection {
   position: relative;
@@ -12,11 +18,26 @@
 }
 
 .navSection {
-  max-inline-size: 100vw;
   margin-top: auto;
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
+  position: relative;
   @include mobile-styles() {
     margin-block-start: 48px;
   }
+  box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
 }
+
+//.navSection::after {
+//  content: "";
+//  position: absolute;
+//  z-index: 1;
+//  inset-block-end: 0;
+//  inset-inline-start: 0;
+//  pointer-events: none;
+//  background-image: linear-gradient(to right,
+//          rgba(255, 255, 255, 0),
+//          rgba(255, 255, 255, 1) 90%);
+//  inline-size: 100%;
+//  block-size: 100%;
+//}

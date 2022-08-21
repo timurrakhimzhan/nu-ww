@@ -1,0 +1,43 @@
+@import "styles/mixins";
+@import "styles/fluid";
+
+.firstPlace {
+  @include column-grid-vert-centered;
+  padding-block: 24px;
+  border-radius: 14px;
+  background: linear-gradient(111.03deg, #F6D365 2.82%, rgba(239, 238, 238, 0.06) 90.94%);
+  backdrop-filter: blur(3.35429px);
+  padding-inline: fluid(18px, 48px);
+  justify-content: space-between;
+}
+
+.firstPlacePlacingAndInfo {
+  @include column-grid-vert-centered;
+  column-gap: fluid(16px, 32px);
+}
+
+.firstPlacePlacing {
+  @include poppinsDefault;
+  font-size: var(--text-xxlg-size);
+}
+
+.firstPlaceInfo {
+  @include row-grid;
+  @include poppinsDefault;
+
+  .name {
+    font-size: var(--text-lg-size);
+  }
+
+  .school {
+    font-size: var(--text-md-size);
+  }
+}
+
+.firstPlacePoints {
+  @include poppinsDefault;
+  color: var(--color-primary);
+  font-size: var(--text-xlg-size);
+  font-weight: 500;
+}
+

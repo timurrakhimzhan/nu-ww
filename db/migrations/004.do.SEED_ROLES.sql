@@ -1,2 +1,0 @@
-INSERT INTO "Role" (codename) VALUES ('PARTICIPANT');
-INSERT INTO "Role" (codename) VALUES ('MODERATOR');
