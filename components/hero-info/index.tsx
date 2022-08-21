@@ -2,8 +2,10 @@ import styles from './HeroInfo.module.scss';
 import {Image} from "@chakra-ui/image";
 import ArrowRightSvg from "../arrow-right-svg/ArrowRightSvg";
 import Cta from "../cta";
+import {useRouter} from "next/router";
 
 const HeroInfo = () => {
+    const router = useRouter();
     return <div className={styles.wrapper}>
         <div className={styles.headingWrapper}>
             <h1 className={styles.heading}>
@@ -17,7 +19,7 @@ const HeroInfo = () => {
             Student Clubs in different fields: Academic and Professional,
             Social, Art and Entertainment, Sport and Dance, Student Government.
         </p>
-        <Cta label={'Go to events'} iconVisible={true} />
+        <Cta label={'Go to events'} onClick={() => router.push('/events-calendar')} iconVisible={true} />
     </div>
 }
 

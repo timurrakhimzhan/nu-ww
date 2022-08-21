@@ -48,5 +48,3 @@ export const appConfigs: {
     TRPC_URL,
     SSL
 }
-
-console.log(process.env.TRPC_URL, process.env.TRPC_URL || 'http://localhost:3000', appConfigs, 'app configs')

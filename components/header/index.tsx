@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuIconClick }) => {
         </menu>
         <div className={styles.contactsWrapper}>
             <div className={styles.contactUsButtonWrapper}><ContactUsButton /></div>
-            <a className={styles.iconWrapper}>
+            <a href={'https://www.instagram.com/nuclubfair2022/'} target={'_blank'} rel={'noreferrer'} className={styles.iconWrapper}>
                 <Image src={'/assets/icons/inst.svg'} alt={'instagram-logo'} width={'30'} height={'30'} />
             </a>
             {

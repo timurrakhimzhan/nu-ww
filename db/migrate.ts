@@ -25,9 +25,9 @@ const client = new pg.Client({
     user: DATABASE_CONFIG.USER,
     database: DATABASE_CONFIG.NAME,
     password: DATABASE_CONFIG.PASSWORD,
-    ssl: {
+    ssl: process.env.SSL === 'true' ? {
         ca: fs.readFileSync(path.resolve(process.cwd(), 'certs', 'ca-certificate.pem'))
-    }
+    } : undefined
 });
 
 
