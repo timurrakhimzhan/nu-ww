@@ -46,3 +46,5 @@ export const appConfigs: {
     TRPC_URL,
     SSL
 }
+
+console.log(appConfigs, 'app configs')
