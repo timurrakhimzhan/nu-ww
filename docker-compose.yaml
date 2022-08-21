@@ -11,6 +11,8 @@ services:
       - .env
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
+    volumes:
+      - ./certs:/home/node/app/certs
   watchtower:
     image: containrrr/watchtower
     restart: always

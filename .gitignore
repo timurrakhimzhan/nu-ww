@@ -4,6 +4,7 @@ volumes
 .env
 .env-dev
 .env-docker
+certs
 
 # dependencies
 /node_modules
