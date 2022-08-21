@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import {trpc} from "../../utils/trpc";
 import ContactUsButton from "../contact-us-button";
+import GoogleAuthButton from "../google-auth-button";
 
 type HeaderProps = {
     onMenuIconClick: () => void;
@@ -76,7 +77,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuIconClick, ... props }) => {
             {
                 status === 'unauthenticated' && (
                     <button className={styles.iconWrapper} onClick={() => setIsModalOpened(true)}>
-                        <Image src={'/assets/icons/login.svg'} alt={'login-icon'} width={'34'} height={'34'}/>
+                        <Image src={'/assets/icons/login.svg'} alt={'login-icon'} width={'34'}
+                               height={'34'}/>
                     </button>
                 )
             }
