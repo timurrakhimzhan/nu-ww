@@ -25,7 +25,7 @@ function getBaseUrl() {
 export default withTRPC<AppRouter>({
     config({ctx}) {
         return {
-            url: getBaseUrl()
+            url: `https://nuclubfair.rocks/api/trpc`
         };
     },
     ssr: true,
