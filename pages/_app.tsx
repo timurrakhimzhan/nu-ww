@@ -16,12 +16,16 @@ function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
   </SessionProvider>
 }
 
+function getBaseUrl() {
+    return appConfigs.TRPC_URL;
+}
+
 
 
 export default withTRPC<AppRouter>({
     config({ctx}) {
         return {
-            url: `https://nuclubfair.rocks/api/trpc`
+            url: getBaseUrl()
         };
     },
     ssr: true,

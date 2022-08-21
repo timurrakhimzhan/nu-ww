@@ -55,7 +55,9 @@ const QrScanner = () => {
         {
             scanStatus === 'idle' && (
                 <QrReader
-                    constraints={{}}
+                    constraints={{
+                        facingMode: { exact: 'environment', ideal: 'environment' }
+                    }}
                     onResult={(result, error) => {
                         if (result) {
                             const text = result.getText();
