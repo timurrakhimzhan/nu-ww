@@ -5,7 +5,7 @@ import {extendTheme, Theme, theme} from "@chakra-ui/react";
 import {withTRPC} from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
 import {AppRouter} from "./api/trpc/[trpc]";
-import {URL} from "../configs";
+import {appConfigs} from "../configs";
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
 
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
 export default withTRPC<AppRouter>({
     config({ctx}) {
         return {
-            url: `${URL}/api/trpc`
+            url: `${appConfigs.TRPC_URL}/api/trpc`
         };
     },
     ssr: true,

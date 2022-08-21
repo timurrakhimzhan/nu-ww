@@ -1,11 +1,8 @@
-import {Session} from "next-auth";
-
 export const MENU = [
     {
         label: 'About',
         path: '/',
-        iconPath: '/assets/icons/about.svg',
-        isVisible: (session: Session) => session
+        iconPath: '/assets/icons/about.svg'
     },
     {
         label: 'Events calendar',
@@ -33,6 +30,19 @@ export const ROLES = {
     PARTICIPANT_MODERATOR: 'PARTICIPANT_MODERATOR'
 }
 
-export const NODE_ENV = process.env.NODE_ENV || 'development'
+const NODE_ENV = process.env.NODE_ENV || 'development'
 
-export const URL = process.env.URL || 'http://localhost:3000'
+const TRPC_URL = process.env.TRPC_URL || 'http://localhost:3000';
+
+const SSL = process.env.SSL || 'false';
+
+
+export const appConfigs: {
+    NODE_ENV: string;
+    TRPC_URL: string;
+    SSL: string;
+} = {
+    NODE_ENV,
+    TRPC_URL,
+    SSL
+}
