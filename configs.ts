@@ -34,3 +34,5 @@ export const ROLES = {
     MODERATOR: 'MODERATOR',
     PARTICIPANT_MODERATOR: 'PARTICIPANT_MODERATOR'
 }
+
+export const NODE_ENV = process.env.NODE_ENV || 'development'

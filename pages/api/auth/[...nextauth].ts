@@ -5,9 +5,6 @@ import prisma from "../../../db/prisma";
 
 export const authOptions: NextAuthOptions = {
     secret: JWT_SECRET,
-    pages: {
-
-    },
     providers: [
         GoogleProvider({
             ...GOOGLE_AUTH_CREDENTIALS,
