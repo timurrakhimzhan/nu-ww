@@ -1,3 +1,5 @@
 INSERT INTO "Role" (codename) VALUES ('PARTICIPANT');
 INSERT INTO "Role" (codename) VALUES ('MODERATOR');
 INSERT INTO "Role" (codename) VALUES ('PARTICIPANT_MODERATOR');
+INSERT INTO "Role" (codename) VALUES ('TESTER');
+INSERT INTO "Role" (codename) VALUES ('BANNED');

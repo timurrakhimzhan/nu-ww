@@ -1,11 +1,7 @@
 import * as trpc from "@trpc/server";
-import {ROLES} from "../configs";
 import {z} from "zod";
-import {randomUUID} from "crypto";
 import {TRPCContext} from "../pages/api/trpc/[trpc]";
 import {TRPCAuthenticatedContext} from "./context";
-import {EventParticipationStatus, EventType} from "@prisma/client";
-import {scannedUserSchema} from "../types/schemas";
 import {getLeaderboardPaginated} from "../utils/leaderboard-utils";
 import participantRouter from "./participant-router";
 import moderatorRouter from "./moderator-router";

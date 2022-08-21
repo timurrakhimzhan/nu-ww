@@ -13,7 +13,7 @@ const moderatorRouter = trpc
             where: {
                 email: ctx.session.user.email,
                 roleCodename: {
-                    in: [ROLES.MODERATOR, ROLES.PARTICIPANT_MODERATOR]
+                    in: [ROLES.MODERATOR, ROLES.PARTICIPANT_MODERATOR, ROLES.TESTER]
                 }
             }
         });

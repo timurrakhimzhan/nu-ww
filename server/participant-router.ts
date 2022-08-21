@@ -12,7 +12,7 @@ const participantRouter = trpc
             where: {
                 email: ctx.session.user.email,
                 roleCodename: {
-                    in: [ROLES.PARTICIPANT, ROLES.PARTICIPANT_MODERATOR]
+                    in: [ROLES.PARTICIPANT, ROLES.PARTICIPANT_MODERATOR, ROLES.TESTER]
                 }
             }
         });
@@ -129,7 +129,8 @@ const participantRouter = trpc
     .query('leaderboard-info', {
         output: z.object({
             points: z.number(),
-            maxPoints: z.number()
+            maxPoints: z.number(),
+            rank: z.number()
         }),
         async resolve({ctx}) {
             return getLeaderboardInfoByEmail(ctx.prisma, ctx.session.user.email || '');

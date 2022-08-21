@@ -10,7 +10,7 @@ const Ranking = () => {
     const {data, isFetchingNextPage, hasNextPage, fetchNextPage} = trpc.useInfiniteQuery(['leaderboard', {limit: 20}], {
         refetchOnMount: true,
         getNextPageParam(lastPage) {
-            if(lastPage.cursor * lastPage.limit >= lastPage.total) {
+            if(lastPage.cursor * lastPage.limit >= 100) {
                 return undefined;
             }
             return lastPage.cursor + 1

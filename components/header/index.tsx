@@ -20,31 +20,28 @@ import {
 import {trpc} from "../../utils/trpc";
 import ContactUsButton from "../contact-us-button";
 import GoogleAuthButton from "../google-auth-button";
+import useCanModerate from "../../hooks/useCanModerate";
+import useCanParticipate from "../../hooks/useCanParticipate";
 
 type HeaderProps = {
     onMenuIconClick: () => void;
 }
 
-export async function getServerSideProps() {
-    return {
-        props: {
-            isAdmin: true
-        }, // will be passed to the page component as props
-    }
-}
 
-
-const Header: React.FC<HeaderProps> = ({ onMenuIconClick, ... props }) => {
+const Header: React.FC<HeaderProps> = ({ onMenuIconClick }) => {
     const router = useRouter();
     const isLoggingIn = router.query['mode'] === 'login';
     const errorMessage = typeof router.query['error'] === 'string' ? router.query['error'] : undefined;
     const [isModalOpened, setIsModalOpened] = useState(false);
     const {status, data} = useSession();
+    const canModerate = useCanModerate();
+    const canParticipate = useCanParticipate();
     const {data: leaderboardData} = trpc.useQuery(['participant.leaderboard-info'], {
-        enabled: data?.user.role === ROLES.PARTICIPANT || data?.user.role === ROLES.PARTICIPANT_MODERATOR
+        enabled: canParticipate
     });
 
     const pointsString = leaderboardData ? `${leaderboardData.points}/${leaderboardData.maxPoints} tokens` : '';
+    const rankString = leaderboardData?.rank ? `#${leaderboardData?.rank}` : ''
 
     useEffect(() => {
         if(isLoggingIn) {
@@ -93,13 +90,13 @@ const Header: React.FC<HeaderProps> = ({ onMenuIconClick, ... props }) => {
                         </MenuButton>
 
                         <MenuList>
-                            <MenuOptionGroup title={`${data.user.firstName} ${data.user.lastName} ${pointsString}`}>
-                                {(data.user.role === ROLES.PARTICIPANT || data.user.role === ROLES.PARTICIPANT_MODERATOR) && (
+                            <MenuOptionGroup title={`${rankString} ${data.user.firstName} ${data.user.lastName} ${pointsString}`}>
+                                {(canParticipate) && (
                                     <MenuItem onClick={() => router.push('/get-tokens')}>
                                         <div className={styles.menuItemWrapper}>Get tokens</div>
                                     </MenuItem>
                                 )}
-                                {(data.user.role === ROLES.MODERATOR || data.user.role === ROLES.PARTICIPANT_MODERATOR) && (
+                                {(canModerate) && (
                                     <MenuItem onClick={() => router.push('/moderator-panel')}>
                                         <div className={styles.menuItemWrapper}>Moderate</div>
                                     </MenuItem>
