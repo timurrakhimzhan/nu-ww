@@ -2,7 +2,7 @@
 
 .wrapper {
   @include column-grid;
-  column-gap: 12px;
+  column-gap: 24px;
   align-items: center;
   max-inline-size: 600px;
 
