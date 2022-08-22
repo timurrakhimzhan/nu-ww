@@ -36,6 +36,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuIconClick }) => {
     const [isModalOpened, setIsModalOpened] = useState(false);
     const {status, data} = useSession();
     const canModerate = useCanModerate();
+    const canParticipate = useCanParticipate();
     const shownInLeaderboard = useShownInLeaderboard();
     const {data: leaderboardData} = trpc.useQuery(['participant.leaderboard-info'], {
         enabled: shownInLeaderboard
