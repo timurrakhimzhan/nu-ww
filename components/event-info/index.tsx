@@ -23,7 +23,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ heading, subheading, description,
         <h1 className={styles.heading}>{heading}</h1>
         <h4 className={styles.subheading}>{subheading}</h4>
         <p className={styles.description}>{description}</p>
-        {clubList && <div className={styles.tableWrapper}><ClubsList clubs={clubList}/></div>}
+        {clubList && <div className={styles.clubWrapper}><ClubsList clubs={clubList}/></div>}
         {eventsSchedule && <div className={styles.tableWrapper}><EventsTable items={eventsSchedule}/></div>}
 
 
