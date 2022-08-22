@@ -17,7 +17,7 @@ const events = [
         name: 'Academic and Professional Day',
         date: 'Mon, Aug 22',
         dateFull: 'Day 1 - Monday, August 22',
-        description: ``,
+        description: `You can find information about club placements on the Instagram`,
         imgUrl: '/assets/day1.jpg',
         eventsSchedule: eventsScheduleDay1,
         clubsList: clubsDay1
@@ -27,7 +27,7 @@ const events = [
         name: 'Social Day',
         date: 'Tue, Aug 23',
         dateFull: 'Day 2 - Tuesday, August 23',
-        description: ``,
+        description: `To be announced later`,
         imgUrl: '/assets/day2.jpg'
     },
     {
@@ -35,7 +35,7 @@ const events = [
         name: 'Art and Entertainment Day',
         date: 'Wed, Aug 24',
         dateFull: 'Day 3 - Wednesday, August 24',
-        description: ``,
+        description: `To be announced later`,
         imgUrl: '/assets/day3.jpg'
     },
     {
@@ -43,7 +43,7 @@ const events = [
         name: 'Sports and Dance Day',
         date: 'Wed, Aug 25',
         dateFull: 'Day 4 - Thursday, August 25',
-        description: ``,
+        description: `To be announced later`,
         imgUrl: '/assets/day4.jpg'
     },
     {
@@ -51,7 +51,7 @@ const events = [
         name: 'Student Government. Concert/Party',
         date: 'Thu, Aug 26',
         dateFull: 'Day 5 - Friday, August 26',
-        description: ``,
+        description: `To be announced later`,
         imgUrl: '/assets/day5.jpg'
     }
 ]

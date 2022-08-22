@@ -4,6 +4,7 @@
   transition: opacity 200ms linear;
   &[aria-hidden=true] {
     opacity: 0;
+    display: none;
   }
   opacity: 1;
   word-wrap: break-word;
@@ -30,9 +31,9 @@
   @include poppinsDefault;
   letter-spacing: 0.17em;
   font-size: var(--text-sm-size);
-  margin-bottom: 24px;
+  margin-bottom: 48px;
 }
 
 .tableWrapper {
-  margin-bottom: 24px;
+  margin-bottom: 48px;
 }

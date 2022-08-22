@@ -8,14 +8,16 @@
 }
 
 .eventSection {
+  flex: 1;
   position: relative;
   max-inline-size: 100%;
   inline-size: 100%;
-  block-size: 250px;
   .eventInfoWrapper {
     position: absolute;
   }
   overflow-y: auto;
+  margin-block-end: 40px;
+  mask-image: linear-gradient(to bottom, transparent, white 10px, white 90%, transparent);;
 }
 
 .navSection {
