@@ -5,11 +5,14 @@
   background: url("/assets/gallery-bg.png") no-repeat;
   background-position-y: 200px;
   background-position-x: 100px;
+  @include mobile-styles() {
+    background: none;
+  }
 }
 
 .content {
   @include row-grid;
-  row-gap: 70px;
+  row-gap: fluid(30px, 70px);
   box-sizing: border-box;
 }
 
@@ -17,6 +20,10 @@
   @include abrilFarfaceDefault;
   font-size: var(--text-xxlg-size);
   color: var(--color-dark);
+
+  @include mobile-styles() {
+    margin-block-start: 120px;
+  }
 }
 
 .galleryPhotos {
@@ -28,7 +35,7 @@
   padding-block-end: 140px;
 
   @include mobile-styles() {
-    justify-content: flex-start;
+    justify-content: stretch;
     flex-wrap: nowrap;
     overflow-x: auto;
     mask-image: linear-gradient(to right, transparent, white 10px, white 90%, transparent);;
@@ -43,11 +50,11 @@
   border-radius: 40px;
   background-size: cover;
   margin: 20px;
+  z-index: 1;
 
   @media (max-width: 420px) {
     inline-size: 90vw;
     block-size: 90vw;
-    margin-inline: 0;
   }
 
   @include mobile-styles() {
