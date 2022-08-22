@@ -44,17 +44,21 @@
 
 
 .carouselWrapper {
-  inline-size: 100%;
+  inline-size: 50vw;
+  position: absolute;
+  inset-inline-end: 0;
+  margin-inline-start: auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   @include mobile-styles() {
-    justify-content: center;
+    position: relative;
+    inline-size: 100%;
   }
 }
 
 .iframeWrapper {
   max-inline-size: 90vw;
-  inline-size: fluid(400px, 600px);
+  inline-size: fluid(400px, 670px);
 
   div {
     position: relative;

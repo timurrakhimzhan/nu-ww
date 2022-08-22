@@ -74,10 +74,17 @@ const Footer = () => {
                 </div>
                 <div className={styles.sponsorsWrapper}>
                     {
-                        sponsors.map((item) => (
+                        sponsors.map((item, i) => i !== 0 ?(
                             <div className={styles.sponsorWrapper} key={item.name}>
                                 <SponsorItem imageUrl={item.imageUrl} description={item.description}
                                              name={item.name}/>
+                            </div>
+                        ) : (
+                            <div className={styles.mainSponsorWrapper}>
+                                <div className={styles.sponsorWrapper} key={item.name}>
+                                    <SponsorItem imageUrl={item.imageUrl} description={item.description}
+                                                 name={item.name}/>
+                                </div>
                             </div>
                         ))
                     }

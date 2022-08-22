@@ -5,7 +5,13 @@ import {extendTheme, Theme, theme} from "@chakra-ui/react";
 import {withTRPC} from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
 import {AppRouter} from "./api/trpc/[trpc]";
-import {appConfigs} from "../configs";
+import {appConfigs, ROLES} from "../configs";
+
+export async function getInitialProps() {
+    return {
+        props: {},
+    }
+}
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
 
@@ -25,7 +31,7 @@ function getBaseUrl() {
 export default withTRPC<AppRouter>({
     config({ctx}) {
         return {
-            url: `https://nuclubfair.rocks/api/trpc`
+            url: getBaseUrl() + '/api/trpc'
         };
     },
     ssr: true,

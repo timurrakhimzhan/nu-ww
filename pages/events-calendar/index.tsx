@@ -18,7 +18,7 @@ const events = [
         date: 'Mon, Aug 22',
         dateFull: 'Day 1 - Monday, August 22',
         description: `You can find information about club placements on the Instagram`,
-        imgUrl: '/assets/day1.jpg',
+        imgUrl: '/assets/day1.png',
         eventsSchedule: eventsScheduleDay1,
         clubsList: clubsDay1
     },
@@ -28,23 +28,23 @@ const events = [
         date: 'Tue, Aug 23',
         dateFull: 'Day 2 - Tuesday, August 23',
         description: `To be announced later`,
-        imgUrl: '/assets/day2.jpg'
+        imgUrl: '/assets/day2.png'
     },
     {
         id: 2,
-        name: 'Art and Entertainment Day',
-        date: 'Wed, Aug 24',
-        dateFull: 'Day 3 - Wednesday, August 24',
-        description: `To be announced later`,
-        imgUrl: '/assets/day3.jpg'
-    },
-    {
-        id: 3,
         name: 'Sports and Dance Day',
         date: 'Wed, Aug 25',
         dateFull: 'Day 4 - Thursday, August 25',
         description: `To be announced later`,
-        imgUrl: '/assets/day4.jpg'
+        imgUrl: '/assets/day4.png'
+    },
+    {
+        id: 3,
+        name: 'Art and Entertainment Day',
+        date: 'Wed, Aug 24',
+        dateFull: 'Day 3 - Wednesday, August 24',
+        description: `To be announced later`,
+        imgUrl: '/assets/day3.png'
     },
     {
         id: 4,
@@ -52,13 +52,12 @@ const events = [
         date: 'Thu, Aug 26',
         dateFull: 'Day 5 - Friday, August 26',
         description: `To be announced later`,
-        imgUrl: '/assets/day5.jpg'
+        imgUrl: '/assets/day5.png'
     }
 ]
 
 const EventsCalendar: NextPage = () => {
     const [eventId, setEventId] = useState<number>(0);
-    const [isMobile] = useMediaQuery('(max-width: 1280px)');
     return (
         <DefaultLayout>
             <div className={styles.wrapper}>

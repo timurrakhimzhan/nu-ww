@@ -14,6 +14,7 @@
   inline-size: 100%;
   .eventInfoWrapper {
     position: absolute;
+    max-inline-size: 100%;
   }
   overflow-y: auto;
   margin-block-end: 40px;
@@ -21,13 +22,15 @@
 }
 
 .navSection {
-  margin-top: auto;
+  margin-block-start: auto;
   display: flex;
   overflow-x: auto;
   position: relative;
   @include mobile-styles() {
     margin-block-start: 48px;
   }
+  inline-size: 100%;
+  justify-content: center;
   box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
 }
 

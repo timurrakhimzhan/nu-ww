@@ -8,9 +8,6 @@
   text-align: center;
   flex-wrap: wrap;
   @include poppinsDefault;
-  div:last-child {
-    display: none;
-  }
   div {
     margin-inline: 12px;
   }

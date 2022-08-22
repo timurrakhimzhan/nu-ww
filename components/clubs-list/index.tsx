@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useLayoutEffect, useRef} from "react";
 import styles from './ClubsList.module.scss';
 
 type ClubsListProps = {
@@ -8,10 +8,8 @@ type ClubsListProps = {
 const ClubsList: React.FC<ClubsListProps> = ({clubs}) => {
     return <div className={styles.wrapper}>
         {
-            clubs.map((club) => <React.Fragment key={club}>
-                <div>{club}</div>
-                <div>•</div>
-            </React.Fragment>)
+            clubs.map((club) => <div key={club} className={'club-list-item'}>{club}</div>
+            )
         }
     </div>
 }

@@ -59,7 +59,7 @@ const GetTokens = () => {
         if(tokenData.status === 'CANCELLED') {
             getTokensStore.setErrorMessage(`Your QR-code got cancelled. Try again.`);
         }
-    }, [tokenData])
+    }, [tokenData, utils])
 
     return <DefaultLayout>
         <section className={styles.wrapper}>

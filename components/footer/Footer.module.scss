@@ -71,6 +71,20 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  width: fluid(300px, 600px);
+  inline-size: 35vw;
   margin: 24px;
+
+  @include mobile-styles() {
+    inline-size: 800px;
+    margin-inline: auto;
+  }
+}
+
+.mainSponsorWrapper {
+  inline-size: 100%;
+  display: flex;
+  justify-content: center;
+  .sponsorWrapper {
+    inline-size: 800px;
+  }
 }

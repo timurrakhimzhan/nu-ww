@@ -34,7 +34,7 @@ export const ROLES = {
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
 
-const TRPC_URL = process.env.TRPC_URL || 'http://localhost:3000';
+const TRPC_URL = process.env.NEXT_PUBLIC_TRPC_URL || 'http://localhost:3000';
 
 const SSL = process.env.SSL || 'false';
 

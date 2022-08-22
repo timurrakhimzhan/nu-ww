@@ -1,6 +1,6 @@
 import styles from './SponsorItem.module.scss';
 import React from "react";
-import {Image} from "@chakra-ui/image";
+import Image from "next/image";
 
 type SponsorItemProps = {
     imageUrl: string;
@@ -10,7 +10,9 @@ type SponsorItemProps = {
 
 const SponsorItem: React.FC<SponsorItemProps> = ({name, description, imageUrl}) => {
     return <div className={styles.wrapper}>
-        <img src={imageUrl} alt={name}/>
+        <div className={styles.imageWrapper}>
+            <Image src={imageUrl} layout={'fill'} alt={name} objectFit='contain'/>
+        </div>
         <div className={styles.description}>
             {description}
         </div>

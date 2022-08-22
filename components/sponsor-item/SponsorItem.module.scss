@@ -4,11 +4,14 @@
   @include column-grid;
   column-gap: 24px;
   align-items: center;
-  max-inline-size: 600px;
+  max-inline-size: 800px;
 
-  img {
-    inline-size: 120px;
-  }
+}
+
+.imageWrapper {
+  position: relative;
+  block-size: 120px;
+  inline-size: 120px;
 }
 
 .imageWrapper {
