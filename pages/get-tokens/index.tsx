@@ -15,6 +15,14 @@ import getTokensStore from "../../utils/getTokensStore";
 
 export async function getServerSideProps({req, res}: any) {
     const session = await unstable_getServerSession(req, res, authOptions);
+    if(!session) {
+        return {
+            redirect: {
+                destination: '/?mode=login&error=You need to login to scan a QR code',
+                permanent: false,
+            },
+        }
+    }
     if (session?.user.role !== ROLES.PARTICIPANT &&
         session?.user.role !== ROLES.PARTICIPANT_MODERATOR &&
         session?.user.role !== ROLES.TESTER
