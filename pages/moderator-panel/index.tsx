@@ -31,15 +31,18 @@ export async function getServerSideProps({req, res}: any){
             },
         }
     }
+
     const events: ModeratorPanelProps['events'] = await prisma.event.findMany({
         where: {
             isActive: true,
             isOver: false,
-            EventModerator: {
-                Moderator: {
-                    email: session.user.email
+            EventModerators: {
+                some: {
+                    Moderator: {
+                        email: session.user.email
+                    }
                 }
-            },
+            }
         },
         select: {
             id: true,

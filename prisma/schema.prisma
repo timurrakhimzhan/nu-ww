@@ -1,6 +1,6 @@
 generator client {
   provider      = "prisma-client-js"
-  binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
+  binaryTargets = ["native"]
 }
 
 datasource db {
@@ -18,8 +18,8 @@ model Event {
   minPoints          Int                  @default(1)
   maxPoints          Int                  @default(1)
   type               EventType            @default(ONCE_SCAN)
-  EventModerator     EventModerator?
-  EventParticipation EventParticipation[]
+  EventModerators    EventModerator[]
+  EventParticipants  EventParticipation[]
 }
 
 model EventParticipation {
@@ -53,7 +53,7 @@ model SchemaVersion {
 
 model User {
   id                                                        String               @id
-  email                                                     String?
+  email                                                     String?              @unique
   firstName                                                 String
   lastName                                                  String
   roleCodename                                              String
@@ -69,11 +69,13 @@ model User {
 }
 
 model EventModerator {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   moderatorId String
-  eventId     Int    @unique
-  Event       Event  @relation(fields: [eventId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventadmin_event")
-  Moderator   User   @relation(fields: [moderatorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventadmin_user")
+  eventId     Int
+  createdAt   DateTime @default(now()) @db.Timestamp(6)
+  updatedAt   DateTime @default(now()) @db.Timestamp(6)
+  Event       Event    @relation(fields: [eventId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventadmin_event")
+  Moderator   User     @relation(fields: [moderatorId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_eventadmin_user")
 }
 
 enum EventParticipationStatus {

@@ -1,7 +1,9 @@
 CREATE TABLE IF NOT EXISTS "EventModerator"(
     "id" SERIAL,
     "moderatorId" TEXT NOT NULL,
-    "eventId" INTEGER UNIQUE NOT NULL,
+    "eventId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP DEFAULT NOW() NOT NULL,
+    "updatedAt" TIMESTAMP DEFAULT NOW() NOT NULL,
 
     PRIMARY KEY ("id"),
 

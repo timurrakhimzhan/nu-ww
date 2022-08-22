@@ -12,7 +12,7 @@ CREATE TRIGGER set_timestamp
 
 CREATE TABLE IF NOT EXISTS "User"(
     "id" text NOT NULL,
-    "email" text DEFAULT NULL,
+    "email" text UNIQUE DEFAULT NULL,
     "firstName" text NOT NULL,
     "lastName" text NOT NULL,
     "roleCodename" TEXT NOT NULL,

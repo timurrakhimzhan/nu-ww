@@ -2,6 +2,7 @@
 @import "styles/fluid";
 
 .wrapper {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   inline-size: 100%;
