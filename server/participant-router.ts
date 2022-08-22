@@ -50,7 +50,6 @@ const participantRouter = trpc
                     message: 'You can not scan QR created by yourself'
                 })
             }
-            ``
             const event = eventParticipation.Event;
 
             if (event.type === EventType.ONCE_SCAN) {
