@@ -22,6 +22,7 @@ import ContactUsButton from "../contact-us-button";
 import GoogleAuthButton from "../google-auth-button";
 import useCanModerate from "../../hooks/useCanModerate";
 import useCanParticipate from "../../hooks/useCanParticipate";
+import useShownInLeaderboard from "../../hooks/useShownInLeaderboard";
 
 type HeaderProps = {
     onMenuIconClick: () => void;
@@ -35,9 +36,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuIconClick }) => {
     const [isModalOpened, setIsModalOpened] = useState(false);
     const {status, data} = useSession();
     const canModerate = useCanModerate();
-    const canParticipate = useCanParticipate();
+    const shownInLeaderboard = useShownInLeaderboard();
     const {data: leaderboardData} = trpc.useQuery(['participant.leaderboard-info'], {
-        enabled: canParticipate
+        enabled: shownInLeaderboard
     });
 
     const pointsString = leaderboardData ? `${leaderboardData.points}/${leaderboardData.maxPoints} tokens` : '';
