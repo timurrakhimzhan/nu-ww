@@ -6,6 +6,7 @@ import {withTRPC} from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
 import {AppRouter} from "./api/trpc/[trpc]";
 import {appConfigs, ROLES} from "../configs";
+import getConfig from "next/config";
 
 export async function getInitialProps() {
     return {
@@ -14,16 +15,16 @@ export async function getInitialProps() {
 }
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
-
-  return <SessionProvider session={session}>
-      <ChakraProvider theme={extendTheme({} as Theme)}>
-        <Component {...pageProps} />
-    </ChakraProvider>
-  </SessionProvider>
+    return <SessionProvider session={session}>
+         <ChakraProvider theme={extendTheme({} as Theme)}>
+            <Component {...pageProps} />
+        </ChakraProvider>
+    </SessionProvider>
 }
 
 function getBaseUrl() {
-    return appConfigs.TRPC_URL;
+    const {publicRuntimeConfig} = getConfig();
+    return publicRuntimeConfig.TRPC_URL;
 }
 
 

@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   typescript: {
 	  ignoreBuildErrors: true
+  },
+  publicRuntimeConfig: {
+	  TRPC_URL: process.env.TRPC_URL
   }
 }
 

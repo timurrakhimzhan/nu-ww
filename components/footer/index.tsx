@@ -80,8 +80,8 @@ const Footer = () => {
                                              name={item.name}/>
                             </div>
                         ) : (
-                            <div className={styles.mainSponsorWrapper}>
-                                <div className={styles.sponsorWrapper} key={item.name}>
+                            <div className={styles.mainSponsorWrapper} key={item.name}>
+                                <div className={styles.sponsorWrapper}>
                                     <SponsorItem imageUrl={item.imageUrl} description={item.description}
                                                  name={item.name}/>
                                 </div>
