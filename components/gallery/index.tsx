@@ -11,7 +11,7 @@ const Gallery = () => {
                 </h3>
                 <div className={styles.galleryPhotos}>
                     {
-                        Array.from(Array(27).keys())
+                        Array.from(Array(26).keys())
                             .map((i) => i + 1)
                             .map((i) => (
                                 <div key={i} className={styles.galleryPhoto} style={{backgroundImage: `url(/assets/gallery/${i}.png)`}} />
