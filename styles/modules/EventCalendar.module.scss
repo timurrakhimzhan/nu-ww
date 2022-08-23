@@ -30,8 +30,11 @@
     margin-block-start: 48px;
   }
   inline-size: 100%;
-  justify-content: center;
   box-shadow: 0 30px 40px rgba(0, 0, 0, .1);
+}
+
+.navWrapper {
+  margin-inline: auto;
 }
 
 //.navSection::after {

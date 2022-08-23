@@ -2,10 +2,6 @@
 
 .wrapper {
   transition: opacity 200ms linear;
-  &[aria-hidden=true] {
-    opacity: 0;
-    display: none;
-  }
   opacity: 1;
   word-wrap: break-word;
   max-inline-size: 100%;

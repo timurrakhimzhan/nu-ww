@@ -5,10 +5,13 @@ import EventNavigation from "../../components/event-navigation";
 
 import styles from './../../styles/modules/EventCalendar.module.scss';
 import {useMemo, useState} from "react";
-import {useMediaQuery} from "@chakra-ui/react";
 import eventsScheduleDay1 from './../../public/assets/events-calendar/events-day1.json';
 import clubsDay1 from './../../public/assets/events-calendar/clubs-day1.json';
-import EventsTable from "../../components/events-table";
+import eventsScheduleDay2 from './../../public/assets/events-calendar/events-day2.json';
+import clubsDay2 from './../../public/assets/events-calendar/clubs-day2.json';
+import eventsScheduleDay3 from './../../public/assets/events-calendar/events-day3.json';
+import clubsDay3 from './../../public/assets/events-calendar/clubs-day3.json';
+import clubsDay4 from './../../public/assets/events-calendar/clubs-day4.json';
 
 
 const events = [
@@ -27,29 +30,34 @@ const events = [
         name: 'Social Day',
         date: 'Tue, Aug 23',
         dateFull: 'Day 2 - Tuesday, August 23',
-        description: `To be announced later`,
-        imgUrl: '/assets/day2.png'
+        description: `You can find information about club placements on the Instagram`,
+        imgUrl: '/assets/day2.png',
+        eventsSchedule: eventsScheduleDay2,
+        clubsList: clubsDay2
     },
     {
         id: 2,
         name: 'Sports and Dance Day',
-        date: 'Wed, Aug 25',
-        dateFull: 'Day 4 - Thursday, August 25',
-        description: `To be announced later`,
-        imgUrl: '/assets/day4.png'
+        date: 'Wed, Aug 24',
+        dateFull: 'Day 3 - Wednesday, August 24',
+        description: `You can find information about club placements on the Instagram`,
+        imgUrl: '/assets/day4.png',
+        eventsSchedule: eventsScheduleDay3,
+        clubsList: clubsDay3
     },
     {
         id: 3,
         name: 'Art and Entertainment Day',
-        date: 'Wed, Aug 24',
-        dateFull: 'Day 3 - Wednesday, August 24',
-        description: `To be announced later`,
-        imgUrl: '/assets/day3.png'
+        date: 'Thu, Aug 25',
+        dateFull: 'Day 4 - Thursday, August 25',
+        description: `Event schedule wo be announced later`,
+        imgUrl: '/assets/day3.png',
+        clubsList: clubsDay4
     },
     {
         id: 4,
         name: 'Student Government. Concert/Party',
-        date: 'Thu, Aug 26',
+        date: 'Fri, Aug 26',
         dateFull: 'Day 5 - Friday, August 26',
         description: `To be announced later`,
         imgUrl: '/assets/day5.png'
@@ -63,19 +71,20 @@ const EventsCalendar: NextPage = () => {
             <div className={styles.wrapper}>
                 <section className={styles.eventSection}>
                     {
-                        events.map((event) => (
+                        events.map((event) => event.id === eventId && (
                             <div key={event.id} className={styles.eventInfoWrapper}>
                                 <EventInfo heading={event.name} subheading={event.dateFull}
                                            eventsSchedule={event.eventsSchedule}
                                            description={event.description}
-                                           clubList={event.clubsList}
-                                           isHidden={event.id !== eventId}/>
+                                           clubList={event.clubsList}/>
                             </div>
                         ))
                     }
                 </section>
                 <section className={styles.navSection}>
-                    <EventNavigation items={events} chosenId={eventId} onItemClick={(id) => setEventId(id)}/>
+                    <div className={styles.navWrapper}>
+                        <EventNavigation items={events} chosenId={eventId} onItemClick={(id) => setEventId(id)}/>
+                    </div>
                 </section>
             </div>
 

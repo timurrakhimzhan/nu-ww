@@ -3,12 +3,12 @@ import React from "react";
 import styles from './ContactUsButton.module.scss';
 
 const ContactUsButton = () => {
-    return <button className={styles.contactUsButton}>
+    return <a className={styles.contactUsButton} href={'mailto:clubfair@nu.edu.kz'} target="_top">
         <span>Contact Us</span>
-        <a className={styles.gmailLogoWrapper} href={'mailto:clubfair@nu.edu.kz'}>
+        <div className={styles.gmailLogoWrapper}>
             <Image src={'/assets/icons/gmail.svg'} alt={'gmail-logo'} width={'17'} height={'13'}/>
-        </a>
-    </button>
+        </div>
+    </a>
 }
 
 export default ContactUsButton;
