@@ -11,6 +11,7 @@ import eventsScheduleDay2 from './../../public/assets/events-calendar/events-day
 import clubsDay2 from './../../public/assets/events-calendar/clubs-day2.json';
 import eventsScheduleDay3 from './../../public/assets/events-calendar/events-day3.json';
 import clubsDay3 from './../../public/assets/events-calendar/clubs-day3.json';
+import eventsScheduleDay4 from './../../public/assets/events-calendar/events-day4.json';
 import clubsDay4 from './../../public/assets/events-calendar/clubs-day4.json';
 
 
@@ -52,6 +53,7 @@ const events = [
         dateFull: 'Day 4 - Thursday, August 25',
         description: `Event schedule wo be announced later`,
         imgUrl: '/assets/day3.png',
+        eventsSchedule: eventsScheduleDay4,
         clubsList: clubsDay4
     },
     {
